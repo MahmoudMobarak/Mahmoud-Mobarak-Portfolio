@@ -595,6 +595,10 @@ html, body {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+
+  /* Make the card stretch to fill its grid cell */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .extracurricular-card:hover {
@@ -602,12 +606,14 @@ html, body {
   box-shadow: 0 16px 35px rgba(0,0,0,0.45);
 }
 
+/* IMAGE FIX: remove max-width, make it fit card width */
 .extracurricular-card img {
   width: 100%;
   height: auto;
   border-radius: 12px;
   display: block;
   object-fit: cover;
+  margin: 0; /* remove default spacing */
 }
 
 /* SECTION TITLE & TEXT */
@@ -824,6 +830,7 @@ html, body {
     flex-direction: column;
   }
 }
+
 
 
 
