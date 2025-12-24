@@ -49,7 +49,7 @@ typingTexts.forEach(p => {
     p.textContent += text.charAt(i);
     i++;
     if (i >= text.length) clearInterval(interval);
-  }, 40); // adjust speed here
+  }, 27); // adjust speed here
 });
 
 /* =========================
@@ -231,3 +231,4 @@ if (closePopup && popup) {
     popup.classList.remove("active");
   });
 }
+
