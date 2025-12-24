@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me | Mahmoud Ahmed Mobarak</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">Mahmoud Ahmed Mobarak</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="certificates.html">Certifications</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="extracurriculars.html">Extracurriculars</a></li>
+        <li><a href="contact.html" class="active">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTACT PAGE -->
+  <main class="contact-page reveal">
+    <h1 class="section-title">Contact Me</h1>
+    <p class="academics-intro">
+      Have a question or want to collaborate? Send me a message, and I’ll try to respond as fast as possible!
+    </p>
+
+    <div class="contact-container">
+      <form class="contact-form" id="contactForm">
+        <div class="input-group">
+          <input type="text" name="firstName" placeholder="First Name" required>
+          <input type="text" name="lastName" placeholder="Last Name" required>
+        </div>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="confirmation-message">Your message has been sent!</div>
+      </form>
+    </div>
+  </main>
+
+  <!-- POPUP CONFIRMATION -->
+  <div class="confirmation-popup" id="confirmationPopup">
+    <div class="popup-content">
+      <h2>Message Sent!</h2>
+      <p>Thank you for contacting me. I’ll try to respond as fast as possible.</p>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Mahmoud Ahmed Mobarak</p>
+  </footer>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
