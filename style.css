@@ -188,24 +188,24 @@ html, body {
   margin-bottom: 20px;
 }
 
-/* Images layout (side-by-side, wrap if too big) */
-.project-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto 24px auto;
+/* IMAGE ROW INSIDE EXTRACURRICULAR CARD */
+.extrar-images {
+  display: flex;
+  justify-content: center;   /* centers the whole group */
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;           /* allows wrapping if too many images */
+  margin: 20px 0;
 }
 
-/* Image styling */
 .extrar-images img {
   width: 100%;
+  max-width: 280px;          /* controls image size */
   height: auto;
-  border-radius: 14px;
+  border-radius: 12px;
   object-fit: cover;
 }
+
 
 /* Center description text but keep it readable */
 .extracurricular-card p {
@@ -877,6 +877,7 @@ html, body {
     flex-direction: column;
   }
 }
+
 
 
 
