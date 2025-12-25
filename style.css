@@ -878,6 +878,27 @@ html, body {
   }
 }
 
+/* =========================
+   EXTRACURRICULAR IMAGES FIX
+========================= */
+.extracurricular-card .extrar-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.extracurricular-card .extrar-images img {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
 
 
 
