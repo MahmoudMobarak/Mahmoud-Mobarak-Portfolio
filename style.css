@@ -892,12 +892,13 @@ html, body {
 }
 
 .extracurricular-card .extrar-images img {
-  max-width: 280px;
+  max-width: 360px;
   width: auto;
   height: auto;
   border-radius: 12px;
   display: block;
 }
+
 
 
 
