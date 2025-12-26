@@ -619,6 +619,33 @@ html, body {
   }
 }
 /* =========================
+   FIX PROJECT CARD POP-OUT
+========================= */
+
+/* Use translateZ to separate hover transform */
+.project-card {
+  will-change: transform;
+}
+
+/* Keep reveal animation */
+.project-card.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.project-card.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FORCE hover to override reveal transform */
+.project-card.reveal.active:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* =========================
    EXTRACIRCULIARS SECTION
 ========================= */
 .extracurriculars {
@@ -898,6 +925,7 @@ html, body {
   border-radius: 12px;
   display: block;
 }
+
 
 
 
