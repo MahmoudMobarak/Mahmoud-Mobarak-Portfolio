@@ -120,3 +120,24 @@ function fadeInProjects() {
 
 window.addEventListener("scroll", fadeInProjects);
 fadeInProjects();
+const contactForm = document.getElementById('contactForm');
+const confirmationPopup = document.getElementById('confirmationPopup');
+const closePopup = document.getElementById('closePopup');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    .then(() => {
+      confirmationPopup.classList.add('active');
+      contactForm.reset();
+    }, (error) => {
+      alert("Oops! Something went wrong. Please try again later.");
+      console.error('EmailJS error:', error);
+    });
+});
+
+closePopup.addEventListener('click', () => {
+  confirmationPopup.classList.remove('active');
+});
+
