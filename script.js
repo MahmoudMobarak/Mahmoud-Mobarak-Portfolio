@@ -120,24 +120,32 @@ function fadeInProjects() {
 
 window.addEventListener("scroll", fadeInProjects);
 fadeInProjects();
+// =========================
+// CONTACT FORM EMAIL USING EMAILJS
+// =========================
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
 const closePopup = document.getElementById('closePopup');
 
 contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
+  e.preventDefault(); // prevent default form submission
 
-  emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
     .then(() => {
+      // Show popup confirmation
       confirmationPopup.classList.add('active');
       contactForm.reset();
-    }, (error) => {
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error);
       alert("Oops! Something went wrong. Please try again later.");
-      console.error('EmailJS error:', error);
     });
 });
 
+// Close the popup when clicking the button
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
+
+
 
