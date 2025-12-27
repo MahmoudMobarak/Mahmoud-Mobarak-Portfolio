@@ -120,29 +120,45 @@ function fadeInProjects() {
 
 window.addEventListener("scroll", fadeInProjects);
 fadeInProjects();
-// =========================
-// CONTACT FORM EMAIL USING EMAILJS
-// =========================
+
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
 const closePopup = document.getElementById('closePopup');
 
 contactForm.addEventListener('submit', function(e) {
-  e.preventDefault(); // prevent default form submission
+  e.preventDefault();
 
-  emailjs.sendForm("service_fkjzmlq", "template_52z4b6i", this)
-    .then(() => {
-      // Show popup confirmation
+  // Collect form data safely
+  const formData = {
+    firstName: this.firstName.value.trim(),
+    lastName: this.lastName.value.trim(),
+    email: this.email.value.trim(),
+    subject: this.subject.value.trim(),
+    message: this.message.value.trim()
+  };
+
+  // Disable submit button while sending
+  const submitBtn = this.querySelector('.submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  emailjs.send("service_fkjzmlq", "template_52z4b6i", formData)
+    .then((response) => {
+      console.log("Email sent successfully!", response);
       confirmationPopup.classList.add('active');
       contactForm.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
     })
     .catch((error) => {
       console.error("EmailJS error:", error);
-      alert("Oops! Something went wrong. Please try again later.");
+      alert("Oops! Something went wrong. Check console for details.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
     });
 });
 
-// Close the popup when clicking the button
+// Close popup
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
