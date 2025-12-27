@@ -130,7 +130,7 @@ const closePopup = document.getElementById('closePopup');
 contactForm.addEventListener('submit', function(e) {
   e.preventDefault(); // prevent default form submission
 
-  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+  emailjs.sendForm("service_fkjzmlq", "template_52z4b6i", this)
     .then(() => {
       // Show popup confirmation
       confirmationPopup.classList.add('active');
@@ -146,6 +146,7 @@ contactForm.addEventListener('submit', function(e) {
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
+
 
 
 
