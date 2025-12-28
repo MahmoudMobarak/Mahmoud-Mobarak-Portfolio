@@ -231,15 +231,6 @@ if (closePopup && popup) {
     popup.classList.remove("active");
   });
 }
-/* =========================
-   FIX ACADEMICS VISIBILITY
-========================= */
-window.addEventListener("DOMContentLoaded", () => {
-  const academics = document.querySelector(".academics");
-  if (academics) {
-    academics.classList.add("active");
-  }
-});
 
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
@@ -282,6 +273,7 @@ contactForm.addEventListener('submit', function(e) {
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
+
 
 
 
