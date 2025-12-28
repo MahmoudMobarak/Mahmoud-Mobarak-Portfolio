@@ -120,6 +120,35 @@ function fadeInProjects() {
 
 window.addEventListener("scroll", fadeInProjects);
 fadeInProjects();
+/* =========================
+   ACADEMICS YEAR SELECT FIX
+========================= */
+const yearSelect = document.getElementById("yearSelect");
+const reportCards = document.querySelectorAll(".report-card");
+
+if (yearSelect) {
+  yearSelect.addEventListener("change", () => {
+    const selectedYear = yearSelect.value;
+
+    reportCards.forEach(card => {
+      card.style.display = "none";
+      card.classList.remove("active");
+    });
+
+    const selectedCard = document.getElementById(selectedYear);
+    if (selectedCard) {
+      selectedCard.style.display = "block";
+
+      // trigger animation
+      setTimeout(() => {
+        selectedCard.classList.add("active");
+      }, 50);
+
+      selectedCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
+
 
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
@@ -162,6 +191,7 @@ contactForm.addEventListener('submit', function(e) {
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
+
 
 
 
