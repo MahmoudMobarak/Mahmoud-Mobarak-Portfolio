@@ -21,7 +21,6 @@ function revealOnScroll() {
   });
 }
 
-// Debounce scroll for performance
 let scrollTimeout;
 window.addEventListener("scroll", () => {
   if (!scrollTimeout) {
@@ -43,13 +42,13 @@ typingTexts.forEach(p => {
   if (!text) return;
 
   let i = 0;
-  p.textContent = ""; // reset text
+  p.textContent = "";
 
   const interval = setInterval(() => {
     p.textContent += text.charAt(i);
     i++;
     if (i >= text.length) clearInterval(interval);
-  }, 27); // adjust speed here
+  }, 27);
 });
 
 /* =========================
@@ -75,233 +74,52 @@ function updateQuote() {
   quoteAuthor.textContent = `– ${quotes[quoteIndex].author}`;
 }
 
-// Auto-slide feature (optional)
-let autoSlide = setInterval(() => {
+setInterval(() => {
   quoteIndex = (quoteIndex + 1) % quotes.length;
   updateQuote();
-}, 8000); // change quote every 8 seconds
+}, 8000);
 
 if (prevBtn && nextBtn) {
   prevBtn.addEventListener("click", () => {
     quoteIndex = (quoteIndex - 1 + quotes.length) % quotes.length;
     updateQuote();
-    clearInterval(autoSlide);
   });
 
   nextBtn.addEventListener("click", () => {
     quoteIndex = (quoteIndex + 1) % quotes.length;
     updateQuote();
-    clearInterval(autoSlide);
   });
 
   updateQuote();
-}
-
-/* =========================
-   FADE-IN ACADEMICS ON LOAD
-========================= */
-window.addEventListener('DOMContentLoaded', () => {
-  const academicsSection = document.querySelector('.academics');
-  if (academicsSection) {
-    setTimeout(() => {
-      academicsSection.classList.add('active'); // fade-in animation
-    }, 100);
-  }
-});
-
-/* =========================
-   ACADEMICS DROPDOWN & REPORT CARDS
-========================= */
-const yearSelect = document.getElementById("yearSelect");
-const cards = document.querySelectorAll(".report-card");
-
-// Hide all cards initially
-cards.forEach(card => {
-  card.style.display = "none";
-  card.style.opacity = "0";
-  card.style.transform = "translateY(25px)";
-});
-
-if (yearSelect) {
-  yearSelect.addEventListener("change", () => {
-    const selectedYear = yearSelect.value;
-
-    // Hide all
-    cards.forEach(card => {
-      card.style.display = "none";
-      card.style.opacity = "0";
-      card.style.transform = "translateY(25px)";
-    });
-
-    // Show selected
-    const selectedCard = document.getElementById(selectedYear);
-    if (selectedCard) {
-      selectedCard.style.display = "flex"; // allows side-by-side layout if needed
-      setTimeout(() => {
-        selectedCard.style.opacity = "1";
-        selectedCard.style.transform = "translateY(0)";
-      }, 50);
-      selectedCard.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
 }
 
 /* =========================
    OPTIONAL: PROJECT CARDS FADE IN
 ========================= */
 const projectCards = document.querySelectorAll(".project-card");
+
 function fadeInProjects() {
   const windowHeight = window.innerHeight;
+
   projectCards.forEach((card, index) => {
     const top = card.getBoundingClientRect().top;
+
     if (top < windowHeight - 100) {
       card.style.opacity = "1";
       card.style.transform = "translateY(0)";
-      card.style.transition = `opacity 0.6s ease ${index*0.1}s, transform 0.6s ease ${index*0.1}s`;
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+
+      /* ✅ FIX: release control back to CSS hover */
+      setTimeout(() => {
+        card.style.opacity = "";
+        card.style.transform = "";
+      }, 700);
     }
   });
 }
+
 window.addEventListener("scroll", fadeInProjects);
 fadeInProjects();
-
-/* =========================
-   CONTACT FORM EMAIL VALIDATION & POPUP CONFIRMATION
-========================= */
-const contactForm = document.getElementById("contactForm");
-const confirmationPopup = document.getElementById("confirmationPopup");
-const closePopupBtn = document.getElementById("closePopup");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const firstName = contactForm.firstName.value.trim();
-    const lastName = contactForm.lastName.value.trim();
-    const email = contactForm.email.value.trim();
-    const subject = contactForm.subject.value.trim();
-    const message = contactForm.message.value.trim();
-
-    // Email regex validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    // OPTIONAL: send email via backend or EmailJS
-
-    // Show popup confirmation
-    if (confirmationPopup) {
-      confirmationPopup.classList.add("active");
-    }
-
-    // Reset form
-    contactForm.reset();
-  });
-}
-
-// Close popup
-if (closePopupBtn) {
-  closePopupBtn.addEventListener("click", function() {
-    confirmationPopup.classList.remove("active");
-  });
-}
-const popup = document.getElementById("confirmationPopup");
-const closePopup = document.getElementById("closePopup");
-
-if (contactForm && popup) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const email = contactForm.email.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    popup.classList.add("active");
-    contactForm.reset();
-  });
-}
-
-if (closePopup && popup) {
-  closePopup.addEventListener("click", () => {
-    popup.classList.remove("active");
-  });
-}
-
-
-
-
-/* =========================
-   CONTACT FORM EMAIL VALIDATION & POPUP CONFIRMATION
-========================= */
-const contactForm = document.getElementById("contactForm");
-const confirmationPopup = document.getElementById("confirmationPopup");
-const closePopupBtn = document.getElementById("closePopup");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const firstName = contactForm.firstName.value.trim();
-    const lastName = contactForm.lastName.value.trim();
-    const email = contactForm.email.value.trim();
-    const subject = contactForm.subject.value.trim();
-    const message = contactForm.message.value.trim();
-
-    // Email regex validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    // OPTIONAL: send email via backend or EmailJS
-
-    // Show popup confirmation
-    if (confirmationPopup) {
-      confirmationPopup.classList.add("active");
-    }
-
-    // Reset form
-    contactForm.reset();
-  });
-}
-
-// Close popup
-if (closePopupBtn) {
-  closePopupBtn.addEventListener("click", function() {
-    confirmationPopup.classList.remove("active");
-  });
-}
-const popup = document.getElementById("confirmationPopup");
-const closePopup = document.getElementById("closePopup");
-
-if (contactForm && popup) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const email = contactForm.email.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    popup.classList.add("active");
-    contactForm.reset();
-  });
-}
-
-if (closePopup && popup) {
-  closePopup.addEventListener("click", () => {
-    popup.classList.remove("active");
-  });
-}
 
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
@@ -344,9 +162,6 @@ contactForm.addEventListener('submit', function(e) {
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
-
-
-
 
 
 
