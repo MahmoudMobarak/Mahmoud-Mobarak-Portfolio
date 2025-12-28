@@ -232,6 +232,77 @@ if (closePopup && popup) {
   });
 }
 
+
+
+
+/* =========================
+   CONTACT FORM EMAIL VALIDATION & POPUP CONFIRMATION
+========================= */
+const contactForm = document.getElementById("contactForm");
+const confirmationPopup = document.getElementById("confirmationPopup");
+const closePopupBtn = document.getElementById("closePopup");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const firstName = contactForm.firstName.value.trim();
+    const lastName = contactForm.lastName.value.trim();
+    const email = contactForm.email.value.trim();
+    const subject = contactForm.subject.value.trim();
+    const message = contactForm.message.value.trim();
+
+    // Email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // OPTIONAL: send email via backend or EmailJS
+
+    // Show popup confirmation
+    if (confirmationPopup) {
+      confirmationPopup.classList.add("active");
+    }
+
+    // Reset form
+    contactForm.reset();
+  });
+}
+
+// Close popup
+if (closePopupBtn) {
+  closePopupBtn.addEventListener("click", function() {
+    confirmationPopup.classList.remove("active");
+  });
+}
+const popup = document.getElementById("confirmationPopup");
+const closePopup = document.getElementById("closePopup");
+
+if (contactForm && popup) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = contactForm.email.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    popup.classList.add("active");
+    contactForm.reset();
+  });
+}
+
+if (closePopup && popup) {
+  closePopup.addEventListener("click", () => {
+    popup.classList.remove("active");
+  });
+}
+
 const contactForm = document.getElementById('contactForm');
 const confirmationPopup = document.getElementById('confirmationPopup');
 const closePopup = document.getElementById('closePopup');
@@ -273,6 +344,7 @@ contactForm.addEventListener('submit', function(e) {
 closePopup.addEventListener('click', () => {
   confirmationPopup.classList.remove('active');
 });
+
 
 
 
