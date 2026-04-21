@@ -1021,6 +1021,15 @@ html, body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+/* 1. Remove width limits */
+  width: 100%; 
+  max-width: none !important; 
+ 
+ /* 2. Make it fill the screen height */
+  min-height: 80vh; 
+ 
+ /* 3. Padding to keep cards away from the very edge of the glass */
+  padding: 40px;
 }
 .role-card {
   background: var(--card-bg);
