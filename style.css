@@ -1780,7 +1780,49 @@ body {
     .about-cards { grid-template-columns: 1fr; }
     .landing { padding: 120px 30px; }
 }
+/* Make the Hero text wider and easier to read */
+.role-hero-content {
+    max-width: 1100px; /* Widened from original */
+    margin: 0 auto;
+}
 
+.tagline.expanded-text {
+    max-width: 900px;
+    margin: 30px auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Ensure the Action Steps use the full width */
+.action-steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns to fill horizontal space */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Style for the new Impact cards to match your theme */
+.extracurricular-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--accent); /* Adds a formal 'report' look */
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.extracurricular-card h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 900px) {
+    .action-steps {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
