@@ -1708,7 +1708,78 @@ body {
   .dna-grid { grid-template-columns: 1fr; }
   .lead-paragraph { border-left: none; border-top: 4px solid var(--accent); padding: 20px 0; }
 }
+/* =========================
+   FORMAL PROFESSIONAL EXTENSIONS
+========================= */
 
+/* Hero Values Strip */
+.values-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.value-pill {
+    background: rgba(77, 163, 255, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ensure Pillars Fill Width */
+.about-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid for density */
+    gap: 30px;
+}
+
+/* Impact Case Study Styling */
+.extracurricular-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--accent); /* Professional indicator */
+    padding: 40px;
+    margin-bottom: 30px;
+    text-align: left; /* Formal alignment */
+}
+
+.extracurricular-card h3 {
+    text-align: left;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+/* Final Vision Box */
+.final-statement-section {
+    padding: 80px 60px;
+}
+
+.final-statement-box {
+    background: var(--navy-blue);
+    border: 1px solid var(--border-soft);
+    padding: 60px;
+    border-radius: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.accent-title {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+    .about-cards { grid-template-columns: 1fr; }
+    .landing { padding: 120px 30px; }
+}
 
 
 
