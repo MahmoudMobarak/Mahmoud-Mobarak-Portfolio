@@ -1823,7 +1823,52 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* Ensure content is visible if JS is slow or blocked */
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 
+/* Match the landing style for the Hero */
+.role-page .landing {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Professional Pills for the Hero */
+.values-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.value-pill {
+    background: rgba(77, 163, 255, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Expand the grid for better page coverage */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Final Box styling */
+.final-statement-section {
+    padding: 100px 60px;
+}
 
 
 
