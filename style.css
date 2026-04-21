@@ -1145,7 +1145,178 @@ html, body {
   .final-statement-box p { font-size: 1.1rem; }
 }
 
+/* =========================
+   HEAVY IMPACT STYLES
+========================= */
 
+.impact-wrapper {
+    background-color: var(--navy-blue-dark);
+}
+
+/* Hero Tweaks */
+.hero-fullscreen {
+    padding-top: 100px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eyebrow {
+    color: var(--accent);
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 30px auto;
+    line-height: 1.8;
+}
+
+/* Section Styling */
+.role-section {
+    padding: 100px 8%;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-label {
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.section-main-title {
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+/* Expanded Bento Grid */
+.bento-grid-expanded {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.bento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    padding: 40px;
+    border-radius: 24px;
+    transition: 0.3s ease;
+}
+
+.bento-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.bento-card.wide {
+    grid-column: span 2;
+}
+
+.bento-card h3 {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.bento-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Roadmap / Timeline */
+.roadmap-section {
+    padding: 100px 8%;
+    background: var(--navy-blue);
+}
+
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--border-soft);
+    margin-left: 20px;
+}
+
+.roadmap-item {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 60px;
+}
+
+.roadmap-dot {
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.roadmap-content h4 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.roadmap-content p {
+    max-width: 800px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Final Manifesto Callout */
+.final-manifesto {
+    padding: 150px 8%;
+    text-align: center;
+}
+
+.manifesto-box {
+    border: 2px solid var(--accent);
+    padding: 80px 40px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, rgba(77, 163, 255, 0.05), transparent);
+}
+
+.manifesto-box h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.manifesto-box p {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+    .bento-grid-expanded {
+        grid-template-columns: 1fr;
+    }
+    .bento-card.wide {
+        grid-column: span 1;
+    }
+    .manifesto-box p {
+        font-size: 1.4rem;
+    }
+}
 
 
 
